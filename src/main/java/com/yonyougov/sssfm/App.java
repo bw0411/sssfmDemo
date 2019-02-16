@@ -8,6 +8,6 @@ public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class);
-        System.out.println("+++++++++应用启动成功++++++++");
+        System.out.println("+++++++++应用启动成功++++++++111111");
     }
 }
