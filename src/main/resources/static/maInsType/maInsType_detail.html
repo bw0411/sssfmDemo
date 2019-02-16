@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>单据详情</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- jquery -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery-validator -->
+    <script type="text/javascript" src="../jquery-validation/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../jquery-validation/localization/messages_zh.min.js"></script>
+    <!-- layer -->
+    <script type="text/javascript" src="../layer/layer.js"></script>
+    <!-- md5.js -->
+    <script type="text/javascript" src="../js/md5.min.js"></script>
+    <!-- common.js -->
+    <script type="text/javascript" src="../js/common.js"></script>
+    <style type="text/css">
+        html,body{
+            height:100%;
+            width:100%;
+        }
+        body{
+            background:url('/static/img/bg2.jpg') no-repeat;
+            background-size:100% 100%;
+        }
+        #goodslist td{
+            border-top:1px solid #39503f61;
+        }
+    </style>
+</head>
+<body>
+<div class="panel panel-default">
+    <div class="panel-heading">单据详情</div>
+    <table class="table" id="billDetail">
+        <tr>
+            <td>编号</td>
+            <td colspan="2" id="billNo"></td>
+            <td>单据类型</td>
+            <td colspan="2" id="billType"></td>
+        </tr>
+        <tr>
+            <td>备注</td>
+            <td colspan="6" id="remark">
+                <!--<span th:if="${orderInfo.status eq 5}">已完成</span>-->
+            </td>
+        </tr>
+        <tr>
+            <td>来源系统</td>
+            <td colspan="5" id="srcSys"></td>
+        </tr>
+        <tr>
+            <td>是否打印</td>
+            <!--<td th:text="${#dates.format(orderInfo.createDate, 'yyyy-MM-dd HH:mm:ss')}" colspan="2"></td>-->
+            <td colspan="5" id="isPrint"></td>
+        </tr>
+    </table>
+    <table class="table" id="billItemList">
+        <tr>
+            <td>类型</td>
+            <td>用途</td>
+            <td>付款单位</td>
+            <td>付款银行</td>
+            <td>收款单位</td>
+            <td>收款银行</td>
+            <td>金额</td>
+            <td>备注</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

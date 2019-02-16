@@ -1,0 +1,65 @@
+app:
+  db:
+    host: 10.10.65.43
+    port: 1521
+    dbname: xe
+    username: crux1109
+    password: crux
+
+spring:
+  application:
+    name: sssfmDemo
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:oracle:thin:@${app.db.host}:${app.db.port}:${app.db.dbname}
+    username: ${app.db.username}
+    password: ${app.db.password}
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 100
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.Oracle10gDialect
+  redis:
+    host: 10.10.65.43
+eureka:
+  client:
+    enabled: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://10.10.65.43:8761/eureka/
+server:
+  port: 8899
+  servlet:
+    context-path: /${spring.application.name}
+
+logging:
+  level:
+    com:
+      crux: debug
+#################### FastDFS-Client Start ####################
+# 文件服务器地址
+file_server_addr: 192.168.16.128:80
+# 最大连接数 并发量较大的话可加大该连接数
+max_storage_connection: 8
+
+## fastdfs为前缀的是FastDFS的配置
+fastdfs:
+  connect_timeout_in_seconds: 10
+  network_timeout_in_seconds: 30
+  charset: UTF-8
+  # token 防盗链功能
+  http_anti_steal_token: true
+  # 密钥
+  http_secret_key: FastDFS1234567890
+  # TrackerServer port
+  http_tracker_http_port: 8080
+  ## Tracker Server, if more than one, separate with ","
+  # fastdfs.tracker_servers=10.0.11.201:22122,10.0.11.202:22122,10.0.11.203:22122
+  #fastdfs.tracker_servers=${tracker_server_addr}:22122
+  tracker_servers: 192.168.16.128:22122
+  #################### FastDFS-Client End ####################
+
